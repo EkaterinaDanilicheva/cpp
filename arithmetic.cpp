@@ -40,13 +40,35 @@ float fivefunc(float a) {
 	return 0;
  }
 }
+float sixfunc(float a) {
+ float rez;
+ if ( a != 0) {
+	cout<< exp(a-2) <<"\n";
+	rez = exp(a-2)+ fabs(sin(a))-(pow(a, 10)*cos(1/a));
+ 	return rez;
+ } else {
+	cout << "ERROR!!!\n";
+	return 0;
+ }
+}
+float sevenfunc(float a, float b, float x) {
+ float rez, root=pow(x,2)+b;
+ if ( x != 0 && root>0 ) {
+	//cout<< exp(a-2) <<"\n";
+	rez = pow(root, 1/5)-( (pow(b,2)*pow(sin(x+a),3))/x );
+ 	return rez;
+ } else {
+	cout << "ERROR!!!\n";
+	return 0;
+ }
+}
 
 
 int main() {
  int step;
  while (true) {
  
-      cout << "Введите 1, 2, 3, 4, 5(продолжить) или 0(выйти) ";
+      cout << "Введите 1, 2, 3, 4, 5, 6, 7(продолжить) или 0(выйти) ";
       cin >> step;
  
       switch ( step ) {  
@@ -88,7 +110,23 @@ int main() {
 	    cin >> a5; 
 	    cout <<"((|"<<a5<<"-5|-sin"<<a5<<")/3) + ( (("<<a5<<"^2 + 2014)^(1/2))*cos(2*"<<a5<<") )-3 = "<< fivefunc(a5)<<"\n";
 	    break;
-	 case 0:    
+	case 6:
+	    float a6;
+	    cout << "a= ";
+	    cin >> a6; 
+	    cout <<"e^("<<a6<<"-2)+|sin("<<a6<<")| - ( ("<<a6<<"^10)*cos(1/"<<a6<<") ) = "<< sixfunc(a6)<<"\n";
+	    break;
+	case 7:
+	    float a7, b7, x7;
+	    cout << "a= ";
+	    cin >> a7; 
+	    cout << "b= ";
+	    cin >> b7;
+	    cout << "x= ";
+	    cin >> x7;
+	    cout <<"rez = "<< sevenfunc(a7,b7,x7)<<"\n";
+	    break;
+	case 0:    
             return false;
 	    break;  
          default:  
